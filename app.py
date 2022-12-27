@@ -11,7 +11,7 @@ app=Flask(__name__)
 ## Load the model
 model = pk.load(open('model_BNB.pk','rb'))
 tfidf_vector = pk.load(open('Tfidf_Vectorizer.pk','rb'))
-label_fit = pk.load(open('Tfidf_Vectorizer.pk','rb'))
+label_fit = pk.load(open('label_fit.pk','rb'))
 
 @app.route('/')
 def home():
@@ -24,7 +24,7 @@ def predict_api():
     print(data)
     processed_text = processed_data.preprocessing(data)
     print(processed_text)
-    output = model.predict(tfidf_vector.transform([processed_text]))[0]
+    output = label_fit.inverse(model.predict(tfidf_vector.transform([processed_text])))[0]
     
     
     print(output)
