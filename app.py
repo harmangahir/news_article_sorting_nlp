@@ -24,7 +24,7 @@ def predict_api():
     print(data)
     processed_text = processed_data.preprocessing(data)
     print(processed_text)
-    output = label_fit.inverse_transform(model.predict(tfidf_vector.transform([processed_text])))[0]
+    output = model.predict(tfidf_vector.transform([processed_text]))[0]
     
     
     print(output)
