@@ -34,7 +34,7 @@ def predict_api():
 
 @app.route('/predict',methods=['POST'])
 def predict():
-    data=request.json
+    data=request.form
     processed_text = processed_data.preprocessing(data)
     output = label_fit.inverse_transform(model.predict(tfidf_vector.transform([processed_text])))[0]
     return render_template("index.html",prediction_text="Predicted category of article  is {}".format(output))
