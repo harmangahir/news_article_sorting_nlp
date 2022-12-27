@@ -12,70 +12,13 @@
     <title>Document</title>
 </head>
 <body>
-    <div class="half">
-        <div class="bg order-1 order-md-2" style="background-image: url('images/bg_1.jpg');"></div>
-        <div class="contents order-2 order-md-1">
-            <div class="container">
-            <div class="row align-items-center justify-content-center">
-            <div class="col-md-6">
-            <div class="form-block">
-            <div class="text-center mb-5">
-            <h3>Your Heading <strong>Goes Here...</strong></h3>
-            
-    </div>
+    <h3 class="text">News Articles Sorting</h3>
     <form action="{{ url_for('predict')}}"method="post">
-
-        <div class="form-group first">
-            <label for="Text">Enter Text</label>
-            <input type="textarea" cols="93" rows="23" placeholder="Write your News here..">
-        </div>
-
-        <div class="form-group first">
-            <label for="Text">Select ML models</label>
-            <select class="form-control" id="ml-models" required>
-                <option value="">Select ML Models</option>
-                <option value="GNB">GNB</option>
-                <option value="MNB">MNB</option>
-                <option value="BNB">BNB</option>
-                <option value="CNB">CNB</option>
-                <option value="KNN">KNN</option>
-                <option value="SGD">SGD</option>
-                <option value="RFC">RFC</option>
-              </select>
-        </div>
-        
-        <div class="form-group first">
-            <label for="Text">Select DL models</label>
-            <select class="form-control" id="dl-models" required>
-                <option value="">Select DL Models</option>
-                <option value="LSTM">LSTM</option>
-                <option value="GRU">GRU</option>
-                <option value="RNN">RNN</option>        
-            </select>
-        </div>
-        
-        <input type="button" value="Detect category" class="btn btn-block btn-primary" id="submitBtn">
-        </form>
-        </div>
-        <table class="table" id="hideTable">
-            <thead>
-              <tr>
-                <th>Category Id</th>
-                <th>Result</th>        
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>1</td>
-                <td>{{prediction_text}}</td>        
-              </tr>      
-            </tbody>
-          </table>
-        </div>
-        </div>
-        </div>
-        </div>
-        </div>
-<script src="js/index.js"></script>
+      
+        <textarea name="article" cols="93" rows="23" placeholder="Write your News here.."
+            required></textarea><br><br><br><br>
+        <input type="submit" class="submit" value="Get Analysis">
+    </form>
+</body>
 </body>
 </html>
