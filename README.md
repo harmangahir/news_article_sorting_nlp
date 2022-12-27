@@ -7,3 +7,11 @@ Nowadays on the Internet there are a lot of sources that generate immense amount
 
 #Results: For a given news article, the system should be able to classify them according to various categories like Finance, Sports etc.
 You have to build a solution that should recognize and classify the news articles based on their labels.
+
+
+### Software and tools requirements
+
+1. [Github Account](https://github.com)
+2. [VS Code IDE](https://code.visualstudio.com)
+3. [Heroku Account](https://heroku.com)
+4. [GitCLI](https://cli.github.com/)
