@@ -13,7 +13,7 @@ model = pk.load(open('model_BNB.pk','rb'))
 tfidf_vector = pk.load(open('Tfidf_Vectorizer.pk','rb'))
 label_fit = pk.load(open('label_fit.pk','rb'))
 
-@app.route('/')
+@app.route('/template')
 def home():
     return render_template('index.html')
 
