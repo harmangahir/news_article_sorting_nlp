@@ -15,17 +15,28 @@
     <h3 class="text">News Articles Sorting</h3>
     <form action="{{ url_for('predict')}}"method="post">
       
-        <textarea name="article" cols="93" rows="23" placeholder="Write your News here.."
+        <textarea name="article" cols="93" rows="15" placeholder="Write your News here.."
             required></textarea><br><br><br><br>
+
+            <div class="form-group first">
+                <label for="Text">Select ML models</label>
+                <select class="form-control" id="ml-models" required>
+                    <option value="">Select ML Models</option>
+                    <option value="MNB">MNB</option>
+                    <option value="BNB">BNB</option>
+                    <option value="CNB">CNB</option>
+                    <option value="KNN">KNN</option>
+                    <option value="SGD">SGD</option>
+                    <option value="RFC">RFC</option>
+                  </select>
+            </div>
         <input type="submit" class="submit" value="Detect category">
     </form>
     <table class="table" id="hideTable" border="1">
           <tr>
-            <th>Model Name</th>
             <th>Result</th>        
           </tr>
           <tr>
-            <td>{{model_name}}</td>
             <td>{{prediction_text}}</td>        
           </tr>      
       </table>
