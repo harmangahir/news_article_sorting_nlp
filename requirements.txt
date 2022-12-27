@@ -3,3 +3,6 @@ sklearn
 numpy
 pandas
 matplotlib
+nltk
+keras
+tensorflow
