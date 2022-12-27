@@ -19,6 +19,20 @@
             required></textarea><br><br><br><br>
         <input type="submit" class="submit" value="Detect category">
     </form>
-    {{prediction_text}}
+    <table class="table" id="hideTable">
+        <thead>
+          <tr>
+            <th>Model Name</th>
+            <th>Result</th>        
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>{{model_name}}</td>
+            <td>{{prediction_text}}</td>        
+          </tr>      
+        </tbody>
+      </table>
+    
 </body>
 </html>
