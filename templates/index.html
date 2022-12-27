@@ -1,41 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>News Article Sorting NLP</title>
 </head>
 <body>
+    <div class="half">
+        <div class="bg order-1 order-md-2" style="background-image: url('images/bg_1.jpg');"></div>
+        <div class="contents order-2 order-md-1">
+        <div class="container">
+        <div class="row align-items-center justify-content-center">
+        <div class="col-md-6">
+        <div class="form-block">
+        <div class="text-center mb-5">
+        <h3>Your Heading <strong>Goes Here...</strong></h3>
+        
+        </div>
+        
     <div class="login">
-        <h1>Boston House Price Prediction</h1>
+        <h1>BBC News Article</h1>
     
          <!-- Main Input For Receiving Query to our ML -->
         <form action="{{ url_for('predict')}}"method="post">
-          <input type="text" name="CRIM" placeholder="CRIM" required="required" /><br>
-            <input type="text" name="ZN" placeholder="ZN" required="required" /><br>
-            <input type="text" name="INDUS" placeholder="INDUS" required="required" /><br>
-            <input type="text" name="CHAS" placeholder="CHAS" required="required" /><br>
-            <input type="text" name="NOX" placeholder="NOX" required="required" /><br>
-            <input type="text" name="RM" placeholder="RM" required="required" /><br>
-            <input type="text" name="Age" placeholder="Age" required="required" /><br>
-            <input type="text" name="DIS" placeholder="DIS" required="required" /><br>
-            <input type="text" name="RAD" placeholder="RAD" required="required" /><br>
-            <input type="text" name="TAX" placeholder="TAX" required="required" /><br>
-            <input type="text" name="PTRATIO" placeholder="PTRATIO" required="required" /><br>
-            <input type="text" name="B" placeholder="B" required="required" /><br>
-            <input type="text" name="LSTAT" placeholder="LSTAT" required="required" /><br>
-    
-           
-    
-            <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
-        </form>
-    
-       <br>
-       <br>
-      
-       
-     </div>
+            <div class="form-group first">
+                <label for="Text">Enter Text</label>
+                <input type="text" class="form-control" placeholder="Enter Text" id="text" required>
+                </div>
+                
+                <div class="form-group first">
+                    <label for="Text">Select ML models</label>
+                    <select class="form-control" id="ml-models" required>
+                        <option value="">Select ML Models</option>
+                        <option value="GNB">GNB</option>
+                        <option value="MNB">MNB</option>
+                        <option value="BNB">BNB</option>
+                        <option value="CNB">CNB</option>
+                        <option value="KNN">KNN</option>
+                        <option value="SGD">SGD</option>
+                        <option value="RFC">RFC</option>
+                      </select>
+                </div>
+                
+                <div class="form-group first">
+                    <label for="Text">Select DL models</label>
+                    <select class="form-control" id="dl-models" required>
+                        <option value="">Select DL Models</option>
+                        <option value="LSTM">LSTM</option>
+                        <option value="GRU">GRU</option>
+                        <option value="RNN">RNN</option>        
+                    </select>
+                </div>
+                
+                <input type="button" value="Detect category" class="btn btn-block btn-primary" id="submitBtn">
+                </form>
+                </div>
+                <table class="table" id="hideTable">
+                    <thead>
+                      <tr>
+                        <th>Category Id</th>
+                        <th>Result</th>        
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>1</td>
+                        <td>{{prediction_text}}</td>        
+                      </tr>      
+                    </tbody>
+                  </table>
+                </div>
+                </div>
+                </div>
+                </div>
+                </div>
+                <script src="js/index.js"></script>
      {{prediction_text}}
 </body>
 </html>
