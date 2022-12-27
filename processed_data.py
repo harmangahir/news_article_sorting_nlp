@@ -1,6 +1,7 @@
 import regex as re
 from nltk.stem import PorterStemmer
 from nltk.stem import WordNetLemmatizer
+from nltk.corpus import stopwords
 
 
 def preprocessing(sentence):
