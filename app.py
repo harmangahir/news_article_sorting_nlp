@@ -10,8 +10,8 @@ app=Flask(__name__)
 
 ## Load the model
 model = pk.load(open('model_BNB.pk','rb'))
-tfidf_vector = pk.load(open('Tfidf_Vectorizer.pkl','rb'))
-label_fit = pk.load(open('Tfidf_Vectorizer.pkl','rb'))
+tfidf_vector = pk.load(open('Tfidf_Vectorizer.pk','rb'))
+label_fit = pk.load(open('Tfidf_Vectorizer.pk','rb'))
 
 @app.route('/')
 def home():
