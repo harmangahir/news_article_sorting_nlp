@@ -22,15 +22,24 @@
                 <label for="Text">Select ML models</label>
                 <select class="form-control" id="ml-models" required>
                     <option value="">Select ML Models</option>
-                    <option value="MNB">MNB</option>
-                    <option value="BNB">BNB</option>
-                    <option value="CNB">CNB</option>
-                    <option value="KNN">KNN</option>
-                    <option value="SGD">SGD</option>
-                    <option value="RFC">RFC</option>
+                    <option id = 'MNB' value="MNB">MNB</option>
+                    <option id = 'BNB' value="BNB">BNB</option>
+                    <option id = 'CNB' value="CNB">CNB</option>
+                    <option id = 'SGD' value="SGD">SGD</option>
+                    <option id = 'RFC' value="RFC">RFC</option>
                   </select>
             </div>
-        <input type="submit" class="submit" value="Detect category">
+
+            <div class="form-group first">
+                <label for="Text">Select DL models</label>
+                <select class="form-control" id="dl-models" required>
+                    <option value="">Select DL Models</option>
+                    <option value="LSTM">LSTM</option>
+                    <option value="GRU">GRU</option>
+                    <option value="RNN">RNN</option>        
+                </select>
+            </div>
+        <input type="submit" class="submit" value="Detect category" id="submitBtn">
     </form>
     <table class="table" id="hideTable" border="1">
           <tr>
