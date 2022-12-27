@@ -22,7 +22,7 @@ def home():
 def predict_api():
     data=request.json
     print(data)
-    processed_text = processed_data(data)
+    processed_text = processed_data.preprocessing(data)
     print(processed_text)
     output = label_fit.inverse_transform(model.predict(tfidf_vector.transform([processed_text])))[0]
     
