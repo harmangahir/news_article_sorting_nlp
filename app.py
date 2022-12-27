@@ -30,7 +30,7 @@ def predict_api():
     print(output)
 
     #return jsonify(output)
-    #return render_template("home.html",prediction_text="The House price prediction is {}".format(output))
+    return render_template("result.html",prediction_text="The House price prediction is {}".format(output))
 
     
 if __name__=="__main__":
