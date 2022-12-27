@@ -32,7 +32,7 @@ def predict_api():
     return jsonify(output)
     
 
-
+@app.route('/predict',methods=['POST'])
 def predict():
     data=request.form.values()
     processed_text = processed_data.preprocessing(data)
