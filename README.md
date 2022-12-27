@@ -10,6 +10,33 @@ Techniques like clustering and associating rule-based algorithms can be applied 
 For a given news article, the system should be able to classify them according to various categories like Finance, Sports etc.
 You have to build a solution that should recognize and classify the news articles based on their labels.
 
+## Dataset:
+Dataset Link:Link
+
+
+## Project Evaluation metrics:
+# Code: 
+• You are supposed to write a code in a modular fashion 
+• Safe: It can be used without causing harm. 
+• Testable: It can be tested at the code level. 
+• Maintainable: It can be maintained, even as your codebase grows. 
+• Portable: It works the same in every environment (operating system) 
+• You have to maintain your code on GitHub. 
+• You have to keep your GitHub repo public so that anyone can check your code. 
+• Proper readme file you have to maintain for any project development. 
+• You should include basic workflow and execution of the entire project in the readme file on GitHub • Follow the coding standards: https://www.python.org/dev/peps/pep-0008/
+
+
+## Database:
+• You are supposed to use a given dataset for this project which is a Cassandra database. • https://astra.dev/ineuron
+Cloud:
+• You can use any cloud platform for this entire solution hosting like AWS, Azure or GCP
+API Details or User Interface:
+• You have to expose your complete solution as an API or try to create a user interface for your model testing. Anything will be fine for us.
+
+## Logging:
+• Logging is a must for every action performed by your code use the python logging library for this.
+
 
 ### Software and tools requirements
 
