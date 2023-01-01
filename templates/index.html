@@ -6,12 +6,15 @@
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap" rel="stylesheet">
 <!-- <link rel="stylesheet" href="css/bootstrap.min.css"> -->
 <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+<!-- <link rel="stylesheet" href="{{ url_for('static', filename='images/bg_1.jpg') }}"> -->
 <!-- <link rel="stylesheet" href="css/style.css"> -->
 <title>Your Title Goes Here...</title>
 </head>
 <body>
 <div class="half">
-<div class="bg order-1 order-md-2" style="background-image: url('images/bg_1.jpg');"></div>
+<div class="bg order-1 order-md-2" style=background-image: url({{ url_for('static', filename='images/bg_1.jpg') }})></div>
+<!-- <div class="bg order-1 order-md-2" style="background-image: url('images/bg_1.jpg');"></div> -->
 <div class="contents order-2 order-md-1">
 <div class="container">
 <div class="row align-items-center justify-content-center">
