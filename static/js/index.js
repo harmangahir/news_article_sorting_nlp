@@ -22,3 +22,8 @@ selectTwo.addEventListener("change", () => {
         
     } 
   })
+
+  function sendModelInfo(){
+    let modelinfo = document.getElementById('ml-models').value
+    console.log(modelinfo)
+  }
