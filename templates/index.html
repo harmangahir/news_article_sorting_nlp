@@ -23,7 +23,7 @@
 <h3><strong>BBC</strong> news article sorting</h3>
 
 </div>
-<form action="{{ url_for('predict')}}"method="post">
+<form action="/predict" method="post">
 
 <div class="form-group first">
 <label for="Text">Enter Text</label>
@@ -54,7 +54,7 @@
     </select>
 </div>
 
-<input type="button" value="Submit" class="btn btn-block btn-primary" id="submitBtn">
+<input type="button" value="Detect Category" class="btn btn-block btn-primary" id="submitBtn">
 </form>
 </div>
 <table class="table" id="hideTable">
@@ -72,7 +72,7 @@
       </tr>      
     </tbody>
   </table>
-</div>{{prediction_text}}
+</div>
 </div>
 </div>
 </div>
