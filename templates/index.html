@@ -32,7 +32,7 @@
 
 <div class="form-group first">
     <label for="Text">Select ML models</label>
-    <select class="form-control" id="ml-models" name="ml_model" onchange="return selectOne()">
+    <select class="form-control" id="ml-models" name="ml_model" required onchange="return selectOne()">
         <option value="">Select ML Models</option>
         <option value="GNB">GNB</option>
         <option value="MNB">MNB</option>
@@ -54,10 +54,10 @@
     </select>
 </div>
 
-<button type="submit" value="Submit" class="btn btn-block btn-primary" id="submitBtn">
+<input type="submit" value="Submit" class="btn btn-block btn-primary" id="submitBtn">
 </form>
 </div>
-<table class="table" id="hideTable">
+<table class="table" id="showTable">
     <thead>
       <tr>
         <th>Category Id</th>

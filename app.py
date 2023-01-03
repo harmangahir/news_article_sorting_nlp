@@ -40,7 +40,7 @@ def predict():
     output = label_fit.inverse_transform(model.predict(tfidf_vector.transform([processed_text])))[0]
     #print(data)
     #return render_template("index.html",prediction_text="Predicted category with model for article  is:{}".format(output))
-    return render_template("index.html",models_name=model_name)
+    return render_template("index.html", models_name=model_name, prediction_text="Predicted category with model for article  is:{}".format(output))
     
     
 if __name__=="__main__":
