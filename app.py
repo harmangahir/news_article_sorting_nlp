@@ -1,10 +1,7 @@
-import json
 import pickle as pk
 import processed_data
-
 from flask import Flask,request,app,jsonify,url_for,render_template
-import numpy as np
-import pandas as pd
+from keras.models import load_model
 
 app=Flask(__name__)
 
@@ -40,13 +37,42 @@ def predict():
         model = pk.load(open('model_BNB.pk','rb'))
         processed_text = processed_data.preprocessing(data)
         output = label_fit.inverse_transform(model.predict(tfidf_vector.transform([processed_text])))[0]
-        return render_template("index.html", models_name=model_name, prediction_text="Predicted category with model for article  is:{}".format(output))
+        return render_template("index.html", models_name=model_name, prediction_text="Predicted category with model {} for article  is:{}".format(model_name,output))
     elif(model_name == 'CNB'):
         model = pk.load(open('model_CNB.pk','rb'))
         processed_text = processed_data.preprocessing(data)
         output = label_fit.inverse_transform(model.predict(tfidf_vector.transform([processed_text])))[0]
-        return render_template("index.html", models_name=model_name, prediction_text="Predicted category with model for article  is:{}".format(output))
-    
+        return render_template("index.html", models_name=model_name, prediction_text="Predicted category with model {} for article  is:{}".format(model_name,output))
+    elif(model_name == 'GNB'):
+        model = pk.load(open('model_GNB.pk','rb'))
+        processed_text = processed_data.preprocessing(data)
+        output = label_fit.inverse_transform(model.predict(tfidf_vector.transform([processed_text])))[0]
+        return render_template("index.html", models_name=model_name, prediction_text="Predicted category with model {} for article  is:{}".format(model_name,output))
+    elif(model_name == 'GRU'):
+        model = pk.load(open('model_GRU.pk','rb'))
+        processed_text = processed_data.preprocessing(data)
+        output = label_fit.inverse_transform(model.predict(tfidf_vector.transform([processed_text])))[0]
+        return render_template("index.html", models_name=model_name, prediction_text="Predicted category with model {} for article  is:{}".format(model_name,output))
+    elif(model_name == 'SGD'):
+        model = pk.load(open('model_SGD.pk','rb'))
+        processed_text = processed_data.preprocessing(data)
+        output = label_fit.inverse_transform(model.predict(tfidf_vector.transform([processed_text])))[0]
+        return render_template("index.html", models_name=model_name, prediction_text="Predicted category with model {} for article  is:{}".format(model_name,output))
+    elif(model_name == 'RFC'):
+        model = pk.load(open('model_RFC.pk','rb'))
+        processed_text = processed_data.preprocessing(data)
+        output = label_fit.inverse_transform(model.predict(tfidf_vector.transform([processed_text])))[0]
+        return render_template("index.html", models_name=model_name, prediction_text="Predicted category with model {} for article  is:{}".format(model_name,output))
+    elif(model_name == 'MNB'):
+        model = pk.load(open('model_MNB.pk','rb'))
+        processed_text = processed_data.preprocessing(data)
+        output = label_fit.inverse_transform(model.predict(tfidf_vector.transform([processed_text])))[0]
+        return render_template("index.html", models_name=model_name, prediction_text="Predicted category with model {} for article  is:{}".format(model_name,output))
+    elif(model_name == 'LSTM'):
+        model = load_model('model_LSTM.h5')
+        processed_text = processed_data.preprocessing(data)
+        output = label_fit.inverse_transform(model.predict(tfidf_vector.transform([processed_text])))[0]
+        return render_template("index.html", models_name=model_name, prediction_text="Predicted category with model {} for article  is:{}".format(model_name,output))
     
 if __name__=="__main__":
     app.run(debug=True)
