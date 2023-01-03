@@ -33,11 +33,3 @@ selectTwo.addEventListener("change", () => {
       document.getElementById("pick").textContent = "";
     }
   });
-
-  function sendModelInfo(){
-    var ex = document.getElementsByTagName('ml-models');
-    var str1= ex.options[ex.selectedIndex].value;
-    var str2= ex.options[ex.selectedIndex].text;
-    console.log(str1)
-    console.log(str2)
-  }
