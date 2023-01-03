@@ -5,20 +5,25 @@ let buttonSelect = document.querySelector("#submitBtn");
 selectOne.addEventListener("change", () => {  
   if (selectOne.value!="") {
     selectTwo.disabled = true;
-} else {
+    return false; }  
+else {
     selectTwo.disabled = false;
+    return false;
 }
 })
 selectTwo.addEventListener("change", () => {  
     if (selectTwo.value!="") {
-        selectOne.disabled = true;       
+        selectOne.disabled = true;
+        return false;       
     } else {
         selectOne.disabled = false;
+        return false;
     }
   })
   buttonSelect.addEventListener("click",()=>{    
     if(inputText.value!="") {
-        document.querySelector(".table").id="showTable"
+        document.querySelector(".table").id="showTable";
+        return false;
         
     } 
   })
