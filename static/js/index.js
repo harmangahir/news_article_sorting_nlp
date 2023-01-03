@@ -4,6 +4,7 @@ let selectTwo = document.querySelector("#dl-models");
 let buttonSelect = document.querySelector("#submitBtn");
 
 function selectOne() {
+  alert('selectOne')
   if (selectOne.value!="") {
     selectTwo.disabled = true;
     }  
@@ -14,6 +15,7 @@ else {
 }
 
 function selectTwo() {
+  alert('selectTwo')
   if (selectTwo.value!="") {
     selectOne.disabled = true;
     alert('select Two')
