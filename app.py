@@ -9,7 +9,7 @@ import pandas as pd
 app=Flask(__name__)
 
 ## Load the model
-model = pk.load(open('model_BNB.pk','rb'))
+
 tfidf_vector = pk.load(open('Tfidf_Vectorizer.pk','rb'))
 label_fit = pk.load(open('label_fit.pk','rb'))
 
@@ -19,28 +19,33 @@ def home():
 
 @app.route('/predict_api',methods=['POST'])
 
-def predict_api():
-    data=request.json
-    print(data)
-    processed_text = processed_data.preprocessing(data)
-    print(processed_text)
-    output = label_fit.inverse_transform(model.predict(tfidf_vector.transform([processed_text])))[0]
+# def predict_api():
+#     data=request.json
+#     print(data)
+#     processed_text = processed_data.preprocessing(data)
+#     print(processed_text)
+#     output = label_fit.inverse_transform(model.predict(tfidf_vector.transform([processed_text])))[0]
     
     
-    print(output)
+#     print(output)
 
-    return jsonify(output)
+#     return jsonify(output)
     
 
 @app.route('/predict',methods=['POST'])
 def predict():
     data= request.form['article']
     model_name = request.form['ml_model']
-    processed_text = processed_data.preprocessing(data)
-    output = label_fit.inverse_transform(model.predict(tfidf_vector.transform([processed_text])))[0]
-    #print(data)
-    #return render_template("index.html",prediction_text="Predicted category with model for article  is:{}".format(output))
-    return render_template("index.html", models_name=model_name, prediction_text="Predicted category with model for article  is:{}".format(output))
+    if(model_name == 'BNB'):
+        model = pk.load(open('model_BNB.pk','rb'))
+        processed_text = processed_data.preprocessing(data)
+        output = label_fit.inverse_transform(model.predict(tfidf_vector.transform([processed_text])))[0]
+        return render_template("index.html", models_name=model_name, prediction_text="Predicted category with model for article  is:{}".format(output))
+    elif(model_name == 'CNB'):
+        model = pk.load(open('model_CNB.pk','rb'))
+        processed_text = processed_data.preprocessing(data)
+        output = label_fit.inverse_transform(model.predict(tfidf_vector.transform([processed_text])))[0]
+        return render_template("index.html", models_name=model_name, prediction_text="Predicted category with model for article  is:{}".format(output))
     
     
 if __name__=="__main__":
