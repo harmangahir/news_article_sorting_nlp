@@ -37,7 +37,6 @@ def predict():
     data=request.form['article']
     processed_text = processed_data.preprocessing(data)
     output = label_fit.inverse_transform(model.predict(tfidf_vector.transform([processed_text])))[0]
-    print('output')
     return render_template("index.html",prediction_text="Predicted category with model for article  is:{}".format(output))
     
     
