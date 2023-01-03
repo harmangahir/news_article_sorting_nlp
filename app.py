@@ -37,10 +37,10 @@ def predict():
     data="abc"
     # data=request.form['article']
     #model_name = request.form['ml_model']
-    processed_text = processed_data.preprocessing(data)
-    output = label_fit.inverse_transform(model.predict(tfidf_vector.transform([processed_text])))[0]
-    print(data)
-    return render_template("index.html",prediction_text="Predicted category with model for article  is:{}".format(data))
+    #processed_text = processed_data.preprocessing(data)
+    #output = label_fit.inverse_transform(model.predict(tfidf_vector.transform([processed_text])))[0]
+    #print(data)
+    return render_template("index.html",prediction_text="Predicted category with model for article  is:")
     
     
 if __name__=="__main__":
