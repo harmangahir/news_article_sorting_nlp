@@ -22,7 +22,3 @@ selectTwo.addEventListener("change", () => {
         
     } 
   })
-
-
-
-  
