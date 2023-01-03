@@ -23,7 +23,21 @@ selectTwo.addEventListener("change", () => {
     } 
   })
 
+  element.addEventListener("change", (e) => {
+    const value = e.target.value;
+    const text = element.options[element.selectedIndex].text;
+   
+    if (value) {
+      document.getElementById("pick").textContent = `Value Selected: ${value}`;
+    } else {
+      document.getElementById("pick").textContent = "";
+    }
+  });
+
   function sendModelInfo(){
-    let modelinfo = document.getElementById('ml-models').value
-    console.log(modelinfo)
+    var ex = document.getElementsByTagName('ml-models');
+    var str1= ex.options[ex.selectedIndex].value;
+    var str2= ex.options[ex.selectedIndex].text;
+    console.log(str1)
+    console.log(str2)
   }
