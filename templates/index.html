@@ -23,7 +23,7 @@
 <h3><strong>BBC</strong> news article sorting</h3>
 
 </div>
-<form action="/predict" method="post">
+<form action="/predict" method="post" onsubmit="return dataSent()">
 
 <div class="form-group first">
 <label for="Text">Enter Text</label>
@@ -32,7 +32,7 @@
 
 <div class="form-group first">
     <label for="Text">Select ML models</label>
-    <select class="form-control" id="ml-models" name="ml_model" required>
+    <select class="form-control" id="ml-models" name="ml_model" onchange="return selectOne()">
         <option value="">Select ML Models</option>
         <option value="GNB">GNB</option>
         <option value="MNB">MNB</option>
@@ -46,7 +46,7 @@
 
 <div class="form-group first">
     <label for="Text">Select DL models</label>
-    <select class="form-control" id="dl-models" required>
+    <select class="form-control" id="dl-models" onchange="return selectTwo()">
         <option value="">Select DL Models</option>
         <option value="LSTM">LSTM</option>
         <option value="GRU">GRU</option>
@@ -61,13 +61,15 @@
     <thead>
       <tr>
         <th>Category Id</th>
-        <th>Result</th>        
+        <th>Result</th>
+        <th>Model Name</th>        
       </tr>
     </thead>
     <tbody>
       <tr>
         <td>1</td>
-        <td>{{prediction_text}}</td>        
+        <td>{{prediction_text}}</td>
+        <td>{{models_name}}</td>        
       </tr>      
     </tbody>
   </table>
