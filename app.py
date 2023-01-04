@@ -70,9 +70,13 @@ def predict():
         
         
         score = model.predict_proba(tfidf_vector.transform(processed_text))[result1]
+        business_percentage=round(score[0]*100,2)
+        tech_percentage=round(score[1]*100,2)
+        politics_percentage=round(score[2]*100,2)
+        sport_percentage=round(score[3]*100,2)
+        entertainment_percentage=round(score[4]*100,2)
 
-
-        return render_template("index.html", models_name=model_name, probability_score=score,predicted_category=output)
+        return render_template("index.html", models_name=model_name,business=business_percentage, tech=tech_percentage,politics=politics_percentage,sport=sport_percentage,entertainment=entertainment_percentage ,predicted_category=output)
 
         # return render_template("index.html", models_name=model_name, prediction_text="Predicted category with model {} for article  is:{}".format(output), probability_score=score)
 
