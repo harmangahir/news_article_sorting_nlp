@@ -52,7 +52,13 @@
     </select>
 </div>
 
-<input type="submit" value="Submit" class="btn btn-block btn-primary" id="submitBtn" >
+<input type="submit" value="Detect category" class="btn btn-block btn-primary" id="submitBtn" >
+
+</form>
+<br>
+<form id = "form" action="/predict_all" method="post">
+
+  <input type="submit" value="Detect category summary" class="btn btn-block btn-primary" id="submitBtn1" >
 </form>
 </div>
 <table class="table" id="showTable">
@@ -84,6 +90,50 @@
         <td>{{sport}}</td>
         <td>{{entertainment}}</td>
         <td>{{predicted_category}}</td>
+      </tr>      
+    </tbody>
+  </table>
+
+  <table class="table" id="showTable1">
+    <thead>
+      <tr>
+        <th></th>
+        <th colspan="5">Probability Score</th>
+        
+        <th></th>
+    </thead>
+    <thead>
+      <tr>
+        <th>Model</th>
+        <th>Business</th>
+        <th>Technology</th>
+        <th>Politics</th>
+        <th>Sport</th>
+        <th>Entertainment</th>
+        <th>Overall result</th>
+      </tr>
+
+    </thead>
+    <tbody>
+      <tr>
+        <td>{{BNB_model_name}}</td>
+        <td>{{BNB_business}}</td>
+        <td>{{BNB_tech}}</td>
+        <td>{{BNB_politics}}</td>        
+        <td>{{BNB_sport}}</td>
+        <td>{{BNB_entertainment}}</td>
+        <td>{{BNB_predicted_category}}</td>
+      </tr>      
+    </tbody>
+    <tbody>
+      <tr>
+        <td>{{MNB_model_name}}</td>
+        <td>{{MNB_business}}</td>
+        <td>{{MNB_tech}}</td>
+        <td>{{MNB_politics}}</td>        
+        <td>{{MNB_sport}}</td>
+        <td>{{MNB_entertainment}}</td>
+        <td>{{MNB_predicted_category}}</td>
       </tr>      
     </tbody>
   </table>
