@@ -166,5 +166,5 @@ def preprocessing(sentence):
   sentence = ' '.join([PorterStemmer().stem(word)for word in sentence.split()])
 
   sentence = ' '.join([WordNetLemmatizer().lemmatize(word) for word in sentence.split()])
-  
+  sentence = list(sentence.split(" "))
   return sentence

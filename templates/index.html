@@ -58,18 +58,32 @@
 <table class="table" id="showTable">
     <thead>
       <tr>
-        <th>Category Id</th>
-        <th>Result</th>
-        <th>Model Name</th>
-        <th>Probability Score</th>       
+        <th></th>
+        <th colspan="5">Probability Score</th>
+        
+        <th></th>
+    </thead>
+    <thead>
+      <tr>
+        <th>Model</th>
+        <th>Business</th>
+        <th>Technology</th>
+        <th>Politics</th>
+        <th>Sports</th>
+        <th>Entertainment</th>
+        <th>Overall result</th>
       </tr>
+
     </thead>
     <tbody>
       <tr>
-        <td>1</td>
-        <td>{{prediction_text}}</td>
         <td>{{models_name}}</td>
-        <td>{{probability_score}}</td>        
+        <td></td>
+        <td></td>
+        <td></td>        
+        <td></td>
+        <td></td>
+        <td>{{predicted_category}}</td>
       </tr>      
     </tbody>
   </table>

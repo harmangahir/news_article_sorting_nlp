@@ -61,18 +61,18 @@ def predict():
     elif(model_name == 'RFC'):
         model = pk.load(open('model_RFC.pk','rb'))
         processed_text = processed_data.preprocessing(data)
-        processed_text = list(processed_text.split(" "))
+        
         p_tfidf = tfidf_vector.transform(processed_text)
         result1 = model.predict(p_tfidf)[0]
 
-        output = label_fit.inverse_transform(model.predict(tfidf_vector.transform([processed_text])))[0]
+        output = label_fit.inverse_transform(model.predict(tfidf_vector.transform(processed_text)))[0]
 
         
         
         score = model.predict_proba(tfidf_vector.transform(processed_text))[result1]
 
 
-        return render_template("index.html", models_name=model_name, prediction_text="Predicted category with model {} for article  is:{}".format(output), probability_score=score)
+        return render_template("index.html", models_name=model_name, probability_score=score,predicted_category=output)
 
         # return render_template("index.html", models_name=model_name, prediction_text="Predicted category with model {} for article  is:{}".format(output), probability_score=score)
 
@@ -85,7 +85,7 @@ def predict():
         model = load_model('model_LSTM.h5')
         processed_text = processed_data.preprocessing(data)
         output = label_fit.inverse_transform(model.predict(tfidf_vector.transform([processed_text])))[0]
-        return render_template("index.html", models_name=model_name, prediction_text="Predicted category with model {} for article  is:{}".format(model_name,output))
+        return render_template("index.html", models_name=model_name, prediction_text=output)
     
 if __name__=="__main__":
     app.run(debug=True)
