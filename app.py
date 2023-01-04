@@ -36,28 +36,94 @@ def predict():
     if(model_name == 'BNB'):
         model = pk.load(open('model_BNB.pk','rb'))
         processed_text = processed_data.preprocessing(data)
-        output = label_fit.inverse_transform(model.predict(tfidf_vector.transform([processed_text])))[0]
-        return render_template("index.html", models_name=model_name, prediction_text="Predicted category with model {} for article  is:{}".format(model_name,output))
+        p_tfidf = tfidf_vector.transform(processed_text)
+        result1 = model.predict(p_tfidf)[0]
+
+        output = label_fit.inverse_transform(model.predict(tfidf_vector.transform(processed_text)))[0]
+
+        
+        
+        score = model.predict_proba(tfidf_vector.transform(processed_text))[result1]
+        business_percentage=round(score[0]*100,2)
+        tech_percentage=round(score[1]*100,2)
+        politics_percentage=round(score[2]*100,2)
+        sport_percentage=round(score[3]*100,2)
+        entertainment_percentage=round(score[4]*100,2)
+
+        return render_template("index.html", models_name=model_name,business=business_percentage, tech=tech_percentage,politics=politics_percentage,sport=sport_percentage,entertainment=entertainment_percentage ,predicted_category=output)
     elif(model_name == 'CNB'):
         model = pk.load(open('model_CNB.pk','rb'))
         processed_text = processed_data.preprocessing(data)
-        output = label_fit.inverse_transform(model.predict(tfidf_vector.transform([processed_text])))[0]
-        return render_template("index.html", models_name=model_name, prediction_text="Predicted category with model {} for article  is:{}".format(model_name,output))
+        p_tfidf = tfidf_vector.transform(processed_text)
+        result1 = model.predict(p_tfidf)[0]
+
+        output = label_fit.inverse_transform(model.predict(tfidf_vector.transform(processed_text)))[0]
+
+        
+        
+        score = model.predict_proba(tfidf_vector.transform(processed_text))[result1]
+        business_percentage=round(score[0]*100,2)
+        tech_percentage=round(score[1]*100,2)
+        politics_percentage=round(score[2]*100,2)
+        sport_percentage=round(score[3]*100,2)
+        entertainment_percentage=round(score[4]*100,2)
+
+        return render_template("index.html", models_name=model_name,business=business_percentage, tech=tech_percentage,politics=politics_percentage,sport=sport_percentage,entertainment=entertainment_percentage ,predicted_category=output)
+    
     elif(model_name == 'GNB'):
         model = pk.load(open('model_GNB.pk','rb'))
         processed_text = processed_data.preprocessing(data)
-        output = label_fit.inverse_transform(model.predict(tfidf_vector.transform([processed_text])))[0]
-        return render_template("index.html", models_name=model_name, prediction_text="Predicted category with model {} for article  is:{}".format(model_name,output))
+        p_tfidf = tfidf_vector.transform(processed_text)
+        result1 = model.predict(p_tfidf)[0]
+        output = label_fit.inverse_transform(model.predict(tfidf_vector.transform(processed_text)))[0]
+
+        
+        
+        score = model.predict_proba(tfidf_vector.transform(processed_text))[result1]
+        business_percentage=round(score[0]*100,2)
+        tech_percentage=round(score[1]*100,2)
+        politics_percentage=round(score[2]*100,2)
+        sport_percentage=round(score[3]*100,2)
+        entertainment_percentage=round(score[4]*100,2)
+
+        return render_template("index.html", models_name=model_name,business=business_percentage, tech=tech_percentage,politics=politics_percentage,sport=sport_percentage,entertainment=entertainment_percentage ,predicted_category=output)
     elif(model_name == 'GRU'):
         model = pk.load(open('model_GRU.pk','rb'))
         processed_text = processed_data.preprocessing(data)
-        output = label_fit.inverse_transform(model.predict(tfidf_vector.transform([processed_text])))[0]
-        return render_template("index.html", models_name=model_name, prediction_text="Predicted category with model {} for article  is:{}".format(model_name,output))
+        p_tfidf = tfidf_vector.transform(processed_text)
+        result1 = model.predict(p_tfidf)[0]
+
+        output = label_fit.inverse_transform(model.predict(tfidf_vector.transform(processed_text)))[0]
+
+        
+        
+        score = model.predict_proba(tfidf_vector.transform(processed_text))[result1]
+        business_percentage=round(score[0]*100,2)
+        tech_percentage=round(score[1]*100,2)
+        politics_percentage=round(score[2]*100,2)
+        sport_percentage=round(score[3]*100,2)
+        entertainment_percentage=round(score[4]*100,2)
+
+        return render_template("index.html", models_name=model_name,business=business_percentage, tech=tech_percentage,politics=politics_percentage,sport=sport_percentage,entertainment=entertainment_percentage ,predicted_category=output)
+    
     elif(model_name == 'SGD'):
         model = pk.load(open('model_SGD.pk','rb'))
         processed_text = processed_data.preprocessing(data)
-        output = label_fit.inverse_transform(model.predict(tfidf_vector.transform([processed_text])))[0]
-        return render_template("index.html", models_name=model_name, prediction_text="Predicted category with model {} for article  is:{}".format(model_name,output))
+        p_tfidf = tfidf_vector.transform(processed_text)
+        result1 = model.predict(p_tfidf)[0]
+
+        output = label_fit.inverse_transform(model.predict(tfidf_vector.transform(processed_text)))[0]
+
+        
+        
+        score = model.predict_proba(tfidf_vector.transform(processed_text))[result1]
+        business_percentage=round(score[0]*100,2)
+        tech_percentage=round(score[1]*100,2)
+        politics_percentage=round(score[2]*100,2)
+        sport_percentage=round(score[3]*100,2)
+        entertainment_percentage=round(score[4]*100,2)
+
+        return render_template("index.html", models_name=model_name,business=business_percentage, tech=tech_percentage,politics=politics_percentage,sport=sport_percentage,entertainment=entertainment_percentage ,predicted_category=output)
     elif(model_name == 'RFC'):
         model = pk.load(open('model_RFC.pk','rb'))
         processed_text = processed_data.preprocessing(data)
@@ -78,13 +144,24 @@ def predict():
 
         return render_template("index.html", models_name=model_name,business=business_percentage, tech=tech_percentage,politics=politics_percentage,sport=sport_percentage,entertainment=entertainment_percentage ,predicted_category=output)
 
-        # return render_template("index.html", models_name=model_name, prediction_text="Predicted category with model {} for article  is:{}".format(output), probability_score=score)
-
     elif(model_name == 'MNB'):
         model = pk.load(open('model_MNB.pk','rb'))
         processed_text = processed_data.preprocessing(data)
-        output = label_fit.inverse_transform(model.predict(tfidf_vector.transform([processed_text])))[0]
-        return render_template("index.html", models_name=model_name, prediction_text="Predicted category with model {} for article  is:{}".format(model_name,output))
+        p_tfidf = tfidf_vector.transform(processed_text)
+        result1 = model.predict(p_tfidf)[0]
+
+        output = label_fit.inverse_transform(model.predict(tfidf_vector.transform(processed_text)))[0]
+
+        
+        
+        score = model.predict_proba(tfidf_vector.transform(processed_text))[result1]
+        business_percentage=round(score[0]*100,2)
+        tech_percentage=round(score[1]*100,2)
+        politics_percentage=round(score[2]*100,2)
+        sport_percentage=round(score[3]*100,2)
+        entertainment_percentage=round(score[4]*100,2)
+
+        return render_template("index.html", models_name=model_name,business=business_percentage, tech=tech_percentage,politics=politics_percentage,sport=sport_percentage,entertainment=entertainment_percentage ,predicted_category=output)
     elif(model_name == 'LSTM'):
         model = load_model('model_LSTM.h5')
         processed_text = processed_data.preprocessing(data)
