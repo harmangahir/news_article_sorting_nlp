@@ -69,7 +69,7 @@
         <th>Business</th>
         <th>Technology</th>
         <th>Politics</th>
-        <th>Sports</th>
+        <th>Sport</th>
         <th>Entertainment</th>
         <th>Overall result</th>
       </tr>
@@ -78,11 +78,11 @@
     <tbody>
       <tr>
         <td>{{models_name}}</td>
-        <td>{{probability_score[0]}}</td>
-        <td></td>
-        <td></td>        
-        <td></td>
-        <td></td>
+        <td>{{(probability_score[0]*100)|round(2) }}</td>
+        <td>{{(probability_score[1]*100)|round(2) }}</td>
+        <td>{{(probability_score[2]*100)|round(2) }}</td>        
+        <td>{{(probability_score[3]*100)|round(2) }}</td>
+        <td>{{(probability_score[4]*100)|round(2) }}</td>
         <td>{{predicted_category}}</td>
       </tr>      
     </tbody>
