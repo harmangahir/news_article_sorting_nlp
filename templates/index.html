@@ -23,7 +23,7 @@
 <h3><strong>BBC</strong> news article sorting</h3>
 
 </div>
-<form id = "form" action="/predict" method="post" onsubmit="return dataSent()">
+<form id = "form" action="/predict" method="post" >
 
 <div class="form-group first">
 <label for="Text">Enter Text</label>
@@ -32,7 +32,7 @@
 
 <div class="form-group first">
     <label for="Text">Select ML models</label>
-    <select class="form-control" id="ml-models" name="ml_model" required onchange="return selectOne()">
+    <select class="form-control" id="ml-models" name="ml_model" required onchange="return selectedOne()">
         <option value="">Select ML Models</option>
         <option value="MNB">MNB</option>
         <option value="BNB">BNB</option>
@@ -44,7 +44,7 @@
 
 <div class="form-group first">
     <label for="Text">Select DL models</label>
-    <select class="form-control" id="dl-models" onchange="return selectTwo()">
+    <select class="form-control" id="dl-models" onchange="return selectedTwo()">
         <option value="">Select DL Models</option>
         <option value="LSTM">LSTM</option>
         <option value="GRU">GRU</option>
@@ -52,7 +52,7 @@
     </select>
 </div>
 
-<input type="submit" value="Submit" class="btn btn-block btn-primary" id="submitBtn">
+<input type="submit" value="Submit" class="btn btn-block btn-primary" id="submitBtn" >
 </form>
 </div>
 <table class="table" id="showTable">

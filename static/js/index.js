@@ -1,10 +1,10 @@
-var inputText = document.querySelector("#text");
-var selectOne = document.querySelector("#ml-models");
-var selectTwo = document.querySelector("#dl-models");
-var buttonSelect = document.querySelector("#submitBtn");
+let inputText = document.querySelector("#text");
+let selectOne = document.querySelector("#ml-models");
+let selectTwo = document.querySelector("#dl-models");
+let buttonSelect = document.querySelector("#submitBtn");
 
-function selectOne() {
-  alert(selectOne.value)
+function selectedOne() {
+  
   if (selectOne.value!="") {
     selectTwo.disabled = true;
     }  
@@ -14,11 +14,11 @@ else {
   return false;
 }
 
-function selectTwo() {
-  alert('selectTwo')
+function selectedTwo() {
+  //alert('selectTwo')
   if (selectTwo.value!="") {
     selectOne.disabled = true;
-    alert('select Two')
+    //alert('select Two')
            
 } else {
     selectOne.disabled = false;
@@ -26,22 +26,3 @@ function selectTwo() {
 }
     return false;
 }
-
-function dataSent() {
-  if(inputText.value!="") {
-    document.querySelector(".table").id="showTable";
-  } 
-return false;
-}
-
-const btn = document.getElementById('submitBtn');
-
-btn.addEventListener('click', () => {
-  const form = document.getElementById('form');
-
-  if (form.style.visibility === 'hidden') {
-    form.style.visibility = 'visible';
-  } else {
-    form.style.visibility = 'hidden';
-  }
-});
