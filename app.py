@@ -61,9 +61,10 @@ def predict():
     elif(model_name == 'RFC'):
         model = pk.load(open('model_RFC.pk','rb'))
         processed_text = processed_data.preprocessing(data)
+        processed_text = list(processed_text.split(" "))
         p_tfidf = tfidf_vector.transform(processed_text)
         result1 = model.predict(p_tfidf)[0]
-        
+
         output = label_fit.inverse_transform(model.predict(tfidf_vector.transform([processed_text])))[0]
 
         

@@ -147,7 +147,7 @@ def preprocessing(sentence):
 
   
   sentence = re.sub(r'[^\w\s]','',sentence) # Remove Punctutation
-  
+  print(sentence)
   sentence = sentence.lower() # Lower case
   
   CLEANR = re.compile('<.*?>|&([a-z0-9]+|#[0-9]{1,6}|#x[0-9a-f]{1,6});')
@@ -166,5 +166,5 @@ def preprocessing(sentence):
   sentence = ' '.join([PorterStemmer().stem(word)for word in sentence.split()])
 
   sentence = ' '.join([WordNetLemmatizer().lemmatize(word) for word in sentence.split()])
-  sentence = list(sentence.split(" "))
+  
   return sentence
