@@ -1,10 +1,10 @@
-let inputText = document.querySelector("#text");
-let selectOne = document.querySelector("#ml-models");
-let selectTwo = document.querySelector("#dl-models");
-let buttonSelect = document.querySelector("#submitBtn");
+var inputText = document.querySelector("#text");
+var selectOne = document.querySelector("#ml-models");
+var selectTwo = document.querySelector("#dl-models");
+var buttonSelect = document.querySelector("#submitBtn");
 
 function selectOne() {
-  alert('selectOne')
+  alert(selectOne.value)
   if (selectOne.value!="") {
     selectTwo.disabled = true;
     }  
