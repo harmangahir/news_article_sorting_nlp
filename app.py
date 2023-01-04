@@ -62,7 +62,13 @@ def predict():
         model = pk.load(open('model_RFC.pk','rb'))
         processed_text = processed_data.preprocessing(data)
         output = label_fit.inverse_transform(model.predict(tfidf_vector.transform([processed_text])))[0]
-        return render_template("index.html", models_name=model_name, prediction_text="Predicted category with model {} for article  is:{}".format(model_name,output))
+        score = model.predict_proba(tfidf_vector.transform(processed_text))[model.predict(tfidf_vector.transform([processed_text]))[0]]
+
+
+
+
+        return render_template("index.html", models_name=model_name, prediction_text="Predicted category with model {} for article  is:{}".format(output), probability_score=score)
+
     elif(model_name == 'MNB'):
         model = pk.load(open('model_MNB.pk','rb'))
         processed_text = processed_data.preprocessing(data)
