@@ -37,7 +37,7 @@ def predict():
         model = pk.load(open('model_BNB.pk','rb'))
         processed_text = processed_data.preprocessing(data)
         p_tfidf = tfidf_vector.transform(processed_text)
-        result1 = model.predict(p_tfidf)[0]
+        result1 = model.predict(p_tfidf)[1]
 
         output = label_fit.inverse_transform(model.predict(tfidf_vector.transform(processed_text)))[0]
 
@@ -179,7 +179,7 @@ def predict_all():
     p_tfidf = tfidf_vector.transform(processed_text)
     
     
-    BNB_result = BNB_model.predict(p_tfidf)[0]
+    BNB_result = BNB_model.predict(p_tfidf)[1]
     BNB_output = label_fit.inverse_transform(BNB_model.predict(tfidf_vector.transform(processed_text)))[0]
     BNB_score = BNB_model.predict_proba(tfidf_vector.transform(processed_text))[BNB_result]
     BNB_business_percentage=round(BNB_score[0]*100,2)
