@@ -16,7 +16,7 @@ def home():
 
 @app.route('/predict_api',methods=['POST'])
 
-# def predict_api():
+def predict_api():
 #     data=request.json
 #     print(data)
 #     processed_text = processed_data.preprocessing(data)
@@ -27,6 +27,18 @@ def home():
 #     print(output)
 
 #     return jsonify(output)
+    data= request.json
+    processed_text = processed_data.preprocessing(data)
+    model_name = request.form['ml_model']
+    
+
+    if(model_name == 'BNB'):
+        model = pk.load(open('models/model_BNB.pk','rb'))
+        tuple1 = predict_category(model,processed_text)
+        
+        # return render_template("index.html", BNB_model_name=BNB_model,BNB_business=BNB_business_percentage, BNB_tech=BNB_tech_percentage,BNB_politics=BNB_politics_percentage,BNB_sport=BNB_sport_percentage,BNB_entertainment=BNB_entertainment_percentage ,BNB_predicted_category=BNB_output,MNB_model_name=MNB_model,MNB_business=MNB_business_percentage, MNB_tech=MNB_tech_percentage,MNB_politics=MNB_politics_percentage,MNB_sport=MNB_sport_percentage,MNB_entertainment=MNB_entertainment_percentage ,MNB_predicted_category=MNB_output)
+        
+        return render_template("index.html", model_name=model, business_prob = tuple1[0])
     
 
 @app.route('/predict',methods=['POST'])
