@@ -55,7 +55,7 @@
 
 </form>
 <br>
-<form id = "form" action="/predict_all" method="post">
+<form id = "form2" action="/predict_all" method="post">
   <input type="text" name='article' class="form-control" placeholder="Enter Text" id="text" required>
 
   <input type="submit" value="Detect category summary" class="btn btn-block btn-primary" id="submitBtn1" >
@@ -94,73 +94,72 @@
     </tbody>
   </table>
 
-  <table class="table" id="showTable1">
-    <thead>
-      <tr>
-        <th></th>
-        <th colspan="5">Probability Score</th>
+<table class="table" id="showTable1">
+  <thead>
+    <tr>
+      <th></th>
+      <th colspan="5">Probability Score</th>
         
-        <th></th>
-    </thead>
-    <thead>
-      <tr>
-        <th>Model</th>
-        <th>Business</th>
-        <th>Entertainment</th>
-        <th>Politics</th>
-        <th>Sport</th>
-        <th>Technology</th>
-        <th>Overall result</th>
-      </tr>
+      <th></th>
+  </thead>
+  <thead>
+    <tr>
+      <th>Model</th>
+      <th>Business</th>
+      <th>Entertainment</th>
+      <th>Politics</th>
+      <th>Sport</th>
+      <th>Technology</th>
+      <th>Overall result</th>
+    </tr>
 
-    </thead>
-    <thead>
-      <tr>
-        <td>{{model_name}}</td>
-        <td>{{MNB_business_prob}}</td>
-        <td>{{MNB_entertainment_prob}}</td>
-        <td>{{MNB_politics_prob}}</td>        
-        <td>{{MNB_sport_prob}}</td>
-        <td>{{MNB_tech_prob}}</td>
-        <td>{{predicted_category}}</td>
-      </tr>
+  </thead>
+  <thead>
+    <tr>
+      <td>{{model_name}}</td>
+      <td>{{MNB_business_prob}}</td>
+      <td>{{MNB_entertainment_prob}}</td>
+      <td>{{MNB_politics_prob}}</td>        
+      <td>{{MNB_sport_prob}}</td>
+      <td>{{MNB_tech_prob}}</td>
+      <td>{{predicted_category}}</td>
+    </tr>
 
-    </thead>
-    <thead>
-      <tr>
-        <td>{{model_name}}</td>
-        <td>{{BNB_business_prob}}</td>
-        <td>{{BNB_entertainment_prob}}</td>
-        <td>{{BNB_politics_prob}}</td>        
-        <td>{{BNB_sport_prob}}</td>
-        <td>{{BNB_tech_prob}}</td>
-        <td>{{predicted_category}}</td>
-      </tr>
-
-    </thead>
-    <tbody>
-      <tr>
-        <td>{{model_name}}</td>
-        <td>{{CNB_business_prob}}</td>
-        <td>{{CNB_entertainment_prob}}</td>
-        <td>{{CNB_politics_prob}}</td>        
-        <td>{{CNB_sport_prob}}</td>
-        <td>{{CNB_tech_prob}}</td>
-        <td>{{predicted_category}}</td>
-      </tr>      
-    </tbody>
-    <tbody>
-      <tr>
-        <td>{{model_name}}</td>
-        <td>{{RFC_business_prob}}</td>
-        <td>{{RFC_entertainment_prob}}</td>
-        <td>{{RFC_politics_prob}}</td>        
-        <td>{{RFC_sport_prob}}</td>
-        <td>{{RFC_tech_prob}}</td>
-        <td>{{predicted_category}}</td>
-      </tr>      
-    </tbody>
-  </table>
+  </thead>
+  <thead>
+    <tr>
+      <td>{{model_name}}</td>
+      <td>{{BNB_business_prob}}</td>
+      <td>{{BNB_entertainment_prob}}</td>
+      <td>{{BNB_politics_prob}}</td>        
+      <td>{{BNB_sport_prob}}</td>
+      <td>{{BNB_tech_prob}}</td>
+      <td>{{predicted_category}}</td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>{{model_name}}</td>
+      <td>{{CNB_business_prob}}</td>
+      <td>{{CNB_entertainment_prob}}</td>
+      <td>{{CNB_politics_prob}}</td>        
+      <td>{{CNB_sport_prob}}</td>
+      <td>{{CNB_tech_prob}}</td>
+      <td>{{predicted_category}}</td>
+    </tr>      
+  </tbody>
+  <tbody>
+    <tr>
+      <td>{{model_name}}</td>
+      <td>{{RFC_business_prob}}</td>
+      <td>{{RFC_entertainment_prob}}</td>
+      <td>{{RFC_politics_prob}}</td>        
+      <td>{{RFC_sport_prob}}</td>
+      <td>{{RFC_tech_prob}}</td>
+      <td>{{predicted_category}}</td>
+    </tr>      
+  </tbody>
+</table>
 </div>
 </div>
 </div>
