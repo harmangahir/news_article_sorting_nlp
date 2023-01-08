@@ -47,6 +47,8 @@ def predict_api():
     
 
     model = pk.load(open('models/model_BNB.pk','rb'))
+    print(model)
+    print(processed_text)
     tuple1 = predict_category(model,processed_text)
     return jsonify(tuple1[5])
         
