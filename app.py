@@ -12,6 +12,8 @@ app=Flask(__name__)
 tfidf_vector = pk.load(open('TF-IDF/Tfidf_Vectorizer.pk','rb'))
 label_fit = pk.load(open('Labels/label_fit.pk','rb'))
 tokenizer = pk.load(open("Tokenizer/tokenizer.pk", "rb"))
+class_name = pk.load(open("Labels/class_names.pk", "rb"))
+
 
 @app.route('/')
 def home():
@@ -27,7 +29,7 @@ def home():
 
 def predict():
     data= request.form['article']
-    model_name = request.form['dl-model']
+    model_name = request.form['dl_model']
     processed_text = processed_data.preprocessing(data)
     if(model_name == 'MNB'):
         model = pk.load(open('models/model_MNB.pk','rb'))
@@ -86,11 +88,12 @@ def predict():
 
     elif(model_name == 'LSTM'):
         load_model_LSTM =tensorflow.keras.models.load_model('models/model_LSTM.h5')
-        input_sequences = tokenizer.texts_to_sequences(input)
+        input_sequences = tokenizer.texts_to_sequences(processed_text)
         input_pad = pad_sequences(input_sequences, padding='pre', maxlen=1000,truncating='pre')
         pred_probs = load_model_LSTM.predict(input_pad)
-
-        return render_template("index.html", model_name = 'LSTM',predicted_category = pred_probs)
+        preds = tensorflow.argmax(pred_probs, axis=1)
+        output = class_name[preds]
+        return render_template("index.html", model_name = 'LSTM',predicted_category = output)
           
 
 
