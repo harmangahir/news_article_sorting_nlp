@@ -88,22 +88,22 @@ def home():
 def predict_all():
     data= request.form['article']
 
-    # BNB_model = pk.load(open('models/model_BNB.pk','rb'))
+    BNB_model = pk.load(open('models/model_BNB.pk','rb'))
     # MNB_model = pk.load(open('models/model_MNB.pk','rb'))
     # CNB_model = pk.load(open('models/model_CNB.pk','rb'))
     # RFC_model = pk.load(open('models/model_RFC.pk','rb'))
-    # processed_text = processed_data.preprocessing(data)
-    # p_tfidf = tfidf_vector.transform(processed_text)
+    processed_text = processed_data.preprocessing(data)
+    p_tfidf = tfidf_vector.transform(processed_text)
     
     
-    # BNB_result = BNB_model.predict(p_tfidf)[0]
-    # BNB_output = label_fit.inverse_transform(BNB_model.predict(tfidf_vector.transform(processed_text)))[0]
-    # BNB_score = BNB_model.predict_proba(tfidf_vector.transform(processed_text))[BNB_result]
-    # BNB_business_percentage=round(BNB_score[0]*100,2)
-    # BNB_tech_percentage=round(BNB_score[1]*100,2)
-    # BNB_politics_percentage=round(BNB_score[2]*100,2)
-    # BNB_sport_percentage=round(BNB_score[3]*100,2)
-    # BNB_entertainment_percentage=round(BNB_score[4]*100,2)
+    BNB_result = BNB_model.predict(p_tfidf)[0]
+    BNB_output = label_fit.inverse_transform(BNB_model.predict(tfidf_vector.transform(processed_text)))[0]
+    BNB_score = BNB_model.predict_proba(tfidf_vector.transform(processed_text))[BNB_result]
+    BNB_business_percentage=round(BNB_score[0]*100,2)
+    BNB_tech_percentage=round(BNB_score[1]*100,2)
+    BNB_politics_percentage=round(BNB_score[2]*100,2)
+    BNB_sport_percentage=round(BNB_score[3]*100,2)
+    BNB_entertainment_percentage=round(BNB_score[4]*100,2)
 
     # MNB_result = BNB_model.predict(p_tfidf)[0]
     # MNB_output = label_fit.inverse_transform(MNB_model.predict(tfidf_vector.transform(processed_text)))[0]
@@ -136,7 +136,7 @@ def predict_all():
     
     # return render_template("index.html", BNB_model_name='Bernoulli NB',BNB_business=BNB_business_percentage, BNB_tech=BNB_tech_percentage,BNB_politics=BNB_politics_percentage,BNB_sport=BNB_sport_percentage,BNB_entertainment=BNB_entertainment_percentage ,BNB_predicted_category=BNB_output,MNB_model_name='Multinomial NB',MNB_business=MNB_business_percentage, MNB_tech=MNB_tech_percentage,MNB_politics=MNB_politics_percentage,MNB_sport=MNB_sport_percentage,MNB_entertainment=MNB_entertainment_percentage ,MNB_predicted_category=MNB_output,CNB_model_name='Complement NB',CNB_business=CNB_business_percentage, CNB_tech=CNB_tech_percentage,CNB_politics=CNB_politics_percentage,CNB_sport=CNB_sport_percentage,CNB_entertainment=CNB_entertainment_percentage ,CNB_predicted_category=CNB_output,RFC_model_name='Random Forest',RFC_business=RFC_business_percentage, RFC_tech=RFC_tech_percentage,RFC_politics=RFC_politics_percentage,RFC_sport=RFC_sport_percentage,RFC_entertainment=RFC_entertainment_percentage ,RFC_predicted_category=RFC_output)
 
-    return render_template("index.html".data)
+    return render_template("index.html",BNB_model_name='Bernoulli NB',BNB_model_name='Bernoulli NB',BNB_business=BNB_business_percentage, BNB_tech=BNB_tech_percentage,BNB_politics=BNB_politics_percentage,BNB_sport=BNB_sport_percentage,BNB_entertainment=BNB_entertainment_percentage ,BNB_predicted_category=BNB_output)
 
 
 
