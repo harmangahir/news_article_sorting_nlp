@@ -27,7 +27,7 @@ def home():
 
 def predict():
     data= request.form['article']
-    model_name = request.form['ml_model'] or request.form['dl-models']
+    model_name = request.form['dl-model']
     processed_text = processed_data.preprocessing(data)
     if(model_name == 'MNB'):
         model = pk.load(open('models/model_MNB.pk','rb'))
