@@ -2,6 +2,8 @@ import pickle as pk
 import processed_data
 from flask import Flask,request,app,jsonify,url_for,render_template
 from keras.models import load_model
+import tensorflow
+from tensorflow.keras.preprocessing.sequence import pad_sequences
 
 app=Flask(__name__)
 
@@ -9,6 +11,7 @@ app=Flask(__name__)
 
 tfidf_vector = pk.load(open('TF-IDF/Tfidf_Vectorizer.pk','rb'))
 label_fit = pk.load(open('Labels/label_fit.pk','rb'))
+tokenizer = pk.load(open("Tokenizer/tokenizer.pk", "rb"))
 
 @app.route('/')
 def home():
@@ -24,7 +27,7 @@ def home():
 
 def predict():
     data= request.form['article']
-    model_name = request.form['ml_model']
+    model_name = request.form['ml_model'] or request.form['dl-models']
     processed_text = processed_data.preprocessing(data)
     if(model_name == 'MNB'):
         model = pk.load(open('models/model_MNB.pk','rb'))
@@ -78,8 +81,16 @@ def predict():
         sport_percentage=round(score[3]*100,2)
         entertainment_percentage=round(score[4]*100,2)
         model_prediction = label_fit.inverse_transform(model.predict(tfidf_vector.transform(processed_text)))[0]
-        
+
         return render_template("index.html", model_name = 'Random Forest',sport_prob = sport_percentage,business_prob = business_percentage,politics_prob = politics_percentage,entertainment_prob = entertainment_percentage, tech_prob=tech_percentage,predicted_category = model_prediction)
+
+    elif(model_name == 'LSTM'):
+        load_model_LSTM =tensorflow.keras.models.load_model('models/model_LSTM.h5')
+        input_sequences = tokenizer.texts_to_sequences(input)
+        input_pad = pad_sequences(input_sequences, padding='pre', maxlen=1000,truncating='pre')
+        pred_probs = load_model_LSTM.predict(input_pad)
+
+        return render_template("index.html", model_name = 'LSTM',predicted_category = pred_probs)
           
 
 
