@@ -90,9 +90,10 @@ def predict():
         load_model_LSTM =tensorflow.keras.models.load_model('models/model_LSTM.h5')
         input_sequences = tokenizer.texts_to_sequences(processed_text)
         input_pad = pad_sequences(input_sequences, padding='pre', maxlen=1000,truncating='pre')
-        pred_probs = load_model_LSTM.predict(input_pad)
-        preds = tensorflow.argmax(pred_probs, axis=1)
-        output = class_name[preds]
+        pred = load_model_LSTM.predict(input_pad)
+        labels = ['Business', 'Entertainment','Politics', 'Sport','Technology']
+        #preds = tensorflow.argmax(pred_probs, axis=1)
+        output = labels[np.argmax(pred)]
         return render_template("index.html", model_name = 'LSTM',predicted_category = output)
           
 
