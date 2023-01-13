@@ -15,10 +15,8 @@ else {
 }
 
 function selectedTwo() {
-  //alert('selectTwo')
   if (selectTwo.value!="") {
     selectOne.disabled = true;
-    //alert('select Two')
            
 } else {
     selectOne.disabled = false;
