@@ -95,7 +95,7 @@ def predict():
         input_pad = pad_sequences(input_sequences, maxlen=1000)
         predicted_result = load_model_LSTM.predict(input_pad)
         labels = ['Business','Entertainment','Politics','Sports','Tech']
-        output = labels[np.argmax(predicted_result)]
+        output = predicted_result
         
         return render_template("index.html", model_name = 'LSTM',predicted_category = output)
           
