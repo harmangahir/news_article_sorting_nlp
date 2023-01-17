@@ -14,6 +14,8 @@ tfidf_vector = pk.load(open('TF-IDF/Tfidf_Vectorizer.pk','rb'))
 label_fit = pk.load(open('Labels/label_fit.pk','rb'))
 tokenizer = pk.load(open("Tokenizer/tokenizer.pk", "rb"))
 pad_sequence = pk.load(open("pad sequence/pad_sequence_X.pk", "rb"))
+label_encoder_pk = pk.load(open("Labels\label_encoder.pk", "rb"))
+
 
 
 
@@ -94,8 +96,8 @@ def predict():
         input_sequences = tokenizer.texts_to_sequences(processed_text)
         input_pad = pad_sequences(input_sequences, maxlen=1000)
         predicted_result = load_model_LSTM.predict(input_pad)
-        labels = ['Business','Entertainment','Politics','Sports','Tech']
-        output = labels[np.argmax(predicted_result,axis=0)]
+        preds = tensorflow.argmax(predicted_result, axis=1)
+        output = label_encoder_pk.inverse_transform(preds)[0]
         
         return render_template("index.html", model_name = 'LSTM',predicted_category = output)
           
