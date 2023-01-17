@@ -4,6 +4,7 @@ from flask import Flask,request,app,jsonify,url_for,render_template
 from keras.models import load_model
 import tensorflow
 from tensorflow.keras.preprocessing.sequence import pad_sequences
+import numpy as np
 
 app=Flask(__name__)
 
