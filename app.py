@@ -13,7 +13,8 @@ app=Flask(__name__)
 tfidf_vector = pk.load(open('TF-IDF/Tfidf_Vectorizer.pk','rb'))
 label_fit = pk.load(open('Labels/label_fit.pk','rb'))
 tokenizer = pk.load(open("Tokenizer/tokenizer.pk", "rb"))
-class_name = pk.load(open("Labels/class_names.pk", "rb"))
+pad_sequence = pk.load(open("pad sequence/pad_sequence_X.pk", "rb"))
+
 
 
 @app.route('/')
@@ -89,13 +90,13 @@ def predict():
         return render_template("index.html", model_name = 'Random Forest',sport_prob = sport_percentage,business_prob = business_percentage,politics_prob = politics_percentage,entertainment_prob = entertainment_percentage, tech_prob=tech_percentage,predicted_category = model_prediction)
 
     elif(model_name == 'LSTM'):
-        load_model_LSTM =tensorflow.keras.models.load_model('models/model_LSTM.h5')
+        load_model_LSTM =tensorflow.keras.models.load_model('models/model_LSTM_ohe.h5')
         input_sequences = tokenizer.texts_to_sequences(processed_text)
-        input_pad = pad_sequences(input_sequences, padding='pre', maxlen=1000,truncating='pre')
-        pred = load_model_LSTM.predict(input_pad)
-        labels = ['Business', 'Entertainment','Politics', 'Sport','Technology']
-        #preds = tensorflow.argmax(pred_probs, axis=1)
-        output = labels[np.argmax(pred)]
+        input_pad = pad_sequences(input_sequences, maxlen=1000)
+        predicted_result = load_model_LSTM.predict(input_pad)
+        labels = ['Business','Entertainment','Politics','Sports','Tech']
+        output = labels[np.argmax(predicted_result)]
+        
         return render_template("index.html", model_name = 'LSTM',predicted_category = output)
           
 
