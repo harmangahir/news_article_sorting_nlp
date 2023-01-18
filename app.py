@@ -99,7 +99,7 @@ def predict():
         preds = tensorflow.argmax(predicted_result, axis=1)
         output = label_encoder_pk.inverse_transform(preds)[0]
         
-        return render_template("index.html", model_name = 'LSTM',predicted_category = output)
+        return render_template("index.html", model_name = 'LSTM',sport_prob = '-',business_prob = '-',politics_prob = '-',entertainment_prob = '-', tech_prob='-',predicted_category = output)
           
 
 
