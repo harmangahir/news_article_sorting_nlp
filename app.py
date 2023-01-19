@@ -92,7 +92,7 @@ def predict():
         return render_template("index.html", model_name = 'Random Forest',sport_prob = sport_percentage,business_prob = business_percentage,politics_prob = politics_percentage,entertainment_prob = entertainment_percentage, tech_prob=tech_percentage,predicted_category = model_prediction)
 
     elif(model_name == 'LSTM'):
-        load_model_LSTM =tensorflow.keras.models.load_model('models/model_LSTM_ohe.h5')
+        load_model_LSTM =tensorflow.keras.models.load_model('models/model_LSTM.h5')
         input_sequences = tokenizer.texts_to_sequences(processed_text)
         input_pad = pad_sequences(input_sequences, maxlen=1000)
         predicted_result = load_model_LSTM.predict(input_pad)
