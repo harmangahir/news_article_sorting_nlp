@@ -13,7 +13,7 @@ app=Flask(__name__)
 tfidf_vector = pk.load(open('TF-IDF/Tfidf_Vectorizer.pk','rb'))
 label_fit = pk.load(open('Labels/label_fit.pk','rb'))
 tokenizer = pk.load(open("Tokenizer/tokenizer.pk", "rb"))
-pad_sequence = pk.load(open("pad sequence/pad_sequence_X.pk", "rb"))
+#pad_sequence = pk.load(open("pad sequence/pad_sequence_X.pk", "rb"))
 label_encoder_pk = pk.load(open("Labels\label_encoder.pk", "rb"))
 
 
