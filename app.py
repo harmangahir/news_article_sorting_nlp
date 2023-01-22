@@ -209,7 +209,7 @@ def predict_all():
 
     
         
-        return render_template("index.html", model_name = 'Bi Directional LSTM',sport_prob = sport_percentage,business_prob =business_percentage ,politics_prob = politics_percentage,entertainment_prob = entertainment_percentage, tech_prob=tech_percentage,predicted_category = output
+        # return render_template("index.html", model_name = 'Bi Directional LSTM',sport_prob = sport_percentage,business_prob =business_percentage ,politics_prob = politics_percentage,entertainment_prob = entertainment_percentage, tech_prob=tech_percentage,predicted_category = output
 
 
 
