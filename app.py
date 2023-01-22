@@ -13,7 +13,6 @@ app=Flask(__name__)
 tfidf_vector = pk.load(open('TF-IDF/Tfidf_Vectorizer.pk','rb'))
 label_fit = pk.load(open('Labels/label_fit.pk','rb'))
 tokenizer = pk.load(open("Tokenizer/tokenizer.pk", "rb"))
-#pad_sequence = pk.load(open("pad sequence/pad_sequence_X.pk", "rb"))
 label_encoder_pk = pk.load(open("Labels\label_encoder.pk", "rb"))
 
 
@@ -33,7 +32,8 @@ def home():
 
 def predict():
     data= request.form['article']
-    model_name = request.form['dl_model']
+
+    model_name  = request.form['dl_model'] or request.form['ml_model']
 
     processed_text = processed_data.preprocessing(data)
     if(model_name == 'MNB'):
@@ -94,13 +94,47 @@ def predict():
     elif(model_name == 'LSTM'):
         load_model_LSTM =tensorflow.keras.models.load_model('models/model_LSTM.h5')
         input_sequences = tokenizer.texts_to_sequences(processed_text)
-        input_pad = pad_sequences(input_sequences, maxlen=1000)
+        input_pad = pad_sequences(input_sequences, maxlen=500)
         predicted_result = load_model_LSTM.predict(input_pad)
         preds = tensorflow.argmax(predicted_result, axis=1)
+        business_percentage=round(predicted_result[0][0]*100,2)
+        tech_percentage=round(predicted_result[0][4]*100,2)
+        politics_percentage=round(predicted_result[0][2]*100,2)
+        sport_percentage=round(predicted_result[0][3]*100,2)
+        entertainment_percentage=round(predicted_result[0][1]*100,2)
         output = label_encoder_pk.inverse_transform(preds)[0]
         
-        return render_template("index.html", model_name = 'LSTM',sport_prob = '-',business_prob = '-',politics_prob = '-',entertainment_prob = '-', tech_prob='-',predicted_category = output)
-          
+        return render_template("index.html", model_name = 'LSTM',sport_prob = sport_percentage,business_prob =business_percentage ,politics_prob = politics_percentage,entertainment_prob = entertainment_percentage, tech_prob=tech_percentage,predicted_category = output)
+    
+     elif(model_name == 'BiLSTM'):
+        load_model_LSTM =tensorflow.keras.models.load_model('models/model_LSTM.h5')
+        input_sequences = tokenizer.texts_to_sequences(processed_text)
+        input_pad = pad_sequences(input_sequences, maxlen=500)
+        predicted_result = load_model_LSTM.predict(input_pad)
+        preds = tensorflow.argmax(predicted_result, axis=1)
+        business_percentage=round(predicted_result[0][0]*100,2)
+        tech_percentage=round(predicted_result[0][4]*100,2)
+        politics_percentage=round(predicted_result[0][2]*100,2)
+        sport_percentage=round(predicted_result[0][3]*100,2)
+        entertainment_percentage=round(predicted_result[0][1]*100,2)
+        output = label_encoder_pk.inverse_transform(preds)[0]
+        
+        return render_template("index.html", model_name = 'LSTM',sport_prob = sport_percentage,business_prob =business_percentage ,politics_prob = politics_percentage,entertainment_prob = entertainment_percentage, tech_prob=tech_percentage,predicted_category = output)
+    
+     elif(model_name == 'GRU'):
+        load_model_LSTM =tensorflow.keras.models.load_model('models/model_LSTM.h5')
+        input_sequences = tokenizer.texts_to_sequences(processed_text)
+        input_pad = pad_sequences(input_sequences, maxlen=500)
+        predicted_result = load_model_LSTM.predict(input_pad)
+        preds = tensorflow.argmax(predicted_result, axis=1)
+        business_percentage=round(predicted_result[0][0]*100,2)
+        tech_percentage=round(predicted_result[0][4]*100,2)
+        politics_percentage=round(predicted_result[0][2]*100,2)
+        sport_percentage=round(predicted_result[0][3]*100,2)
+        entertainment_percentage=round(predicted_result[0][1]*100,2)
+        output = label_encoder_pk.inverse_transform(preds)[0]
+        
+        return render_template("index.html", model_name = 'LSTM',sport_prob = sport_percentage,business_prob =business_percentage ,politics_prob = politics_percentage,entertainment_prob = entertainment_percentage, tech_prob=tech_percentage,predicted_category = output)
 
 
 
