@@ -106,35 +106,35 @@ def predict():
         
         return render_template("index.html", model_name = 'LSTM',sport_prob = sport_percentage,business_prob =business_percentage ,politics_prob = politics_percentage,entertainment_prob = entertainment_percentage, tech_prob=tech_percentage,predicted_category = output)
     
-    elif(model_name == 'BiLSTM'):
-        load_model_LSTM =tensorflow.keras.models.load_model('models/model_Bi_LSTM.h5')
-        input_sequences = tokenizer.texts_to_sequences(processed_text)
-        input_pad = pad_sequences(input_sequences, maxlen=500)
-        predicted_result = load_model_LSTM.predict(input_pad)
-        preds = tensorflow.argmax(predicted_result, axis=1)
-        business_percentage=round(predicted_result[0][0]*100,2)
-        tech_percentage=round(predicted_result[0][4]*100,2)
-        politics_percentage=round(predicted_result[0][2]*100,2)
-        sport_percentage=round(predicted_result[0][3]*100,2)
-        entertainment_percentage=round(predicted_result[0][1]*100,2)
-        output = label_encoder_pk.inverse_transform(preds)[0]
+    # elif(model_name == 'BiLSTM'):
+    #     load_model_LSTM =tensorflow.keras.models.load_model('models/model_Bi_LSTM.h5')
+    #     input_sequences = tokenizer.texts_to_sequences(processed_text)
+    #     input_pad = pad_sequences(input_sequences, maxlen=500)
+    #     predicted_result = load_model_LSTM.predict(input_pad)
+    #     preds = tensorflow.argmax(predicted_result, axis=1)
+    #     business_percentage=round(predicted_result[0][0]*100,2)
+    #     tech_percentage=round(predicted_result[0][4]*100,2)
+    #     politics_percentage=round(predicted_result[0][2]*100,2)
+    #     sport_percentage=round(predicted_result[0][3]*100,2)
+    #     entertainment_percentage=round(predicted_result[0][1]*100,2)
+    #     output = label_encoder_pk.inverse_transform(preds)[0]
         
-        return render_template("index.html", model_name = 'LSTM',sport_prob = sport_percentage,business_prob =business_percentage ,politics_prob = politics_percentage,entertainment_prob = entertainment_percentage, tech_prob=tech_percentage,predicted_category = output)
+    #     return render_template("index.html", model_name = 'LSTM',sport_prob = sport_percentage,business_prob =business_percentage ,politics_prob = politics_percentage,entertainment_prob = entertainment_percentage, tech_prob=tech_percentage,predicted_category = output)
     
-    elif(model_name == 'GRU'):
-        load_model_LSTM =tensorflow.keras.models.load_model('models/model_GRU.h5')
-        input_sequences = tokenizer.texts_to_sequences(processed_text)
-        input_pad = pad_sequences(input_sequences, maxlen=500)
-        predicted_result = load_model_LSTM.predict(input_pad)
-        preds = tensorflow.argmax(predicted_result, axis=1)
-        business_percentage=round(predicted_result[0][0]*100,2)
-        tech_percentage=round(predicted_result[0][4]*100,2)
-        politics_percentage=round(predicted_result[0][2]*100,2)
-        sport_percentage=round(predicted_result[0][3]*100,2)
-        entertainment_percentage=round(predicted_result[0][1]*100,2)
-        output = label_encoder_pk.inverse_transform(preds)[0]
+    # elif(model_name == 'GRU'):
+    #     load_model_LSTM =tensorflow.keras.models.load_model('models/model_GRU.h5')
+    #     input_sequences = tokenizer.texts_to_sequences(processed_text)
+    #     input_pad = pad_sequences(input_sequences, maxlen=500)
+    #     predicted_result = load_model_LSTM.predict(input_pad)
+    #     preds = tensorflow.argmax(predicted_result, axis=1)
+    #     business_percentage=round(predicted_result[0][0]*100,2)
+    #     tech_percentage=round(predicted_result[0][4]*100,2)
+    #     politics_percentage=round(predicted_result[0][2]*100,2)
+    #     sport_percentage=round(predicted_result[0][3]*100,2)
+    #     entertainment_percentage=round(predicted_result[0][1]*100,2)
+    #     output = label_encoder_pk.inverse_transform(preds)[0]
         
-        return render_template("index.html", model_name = 'LSTM',sport_prob = sport_percentage,business_prob =business_percentage ,politics_prob = politics_percentage,entertainment_prob = entertainment_percentage, tech_prob=tech_percentage,predicted_category = output)
+    #     return render_template("index.html", model_name = 'LSTM',sport_prob = sport_percentage,business_prob =business_percentage ,politics_prob = politics_percentage,entertainment_prob = entertainment_percentage, tech_prob=tech_percentage,predicted_category = output)
 
 
 
