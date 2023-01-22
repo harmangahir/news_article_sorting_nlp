@@ -106,7 +106,7 @@ def predict():
         
         return render_template("index.html", model_name = 'LSTM',sport_prob = sport_percentage,business_prob =business_percentage ,politics_prob = politics_percentage,entertainment_prob = entertainment_percentage, tech_prob=tech_percentage,predicted_category = output)
     
-     elif(model_name == 'BiLSTM'):
+    elif(model_name == 'BiLSTM'):
         load_model_LSTM =tensorflow.keras.models.load_model('models/model_LSTM.h5')
         input_sequences = tokenizer.texts_to_sequences(processed_text)
         input_pad = pad_sequences(input_sequences, maxlen=500)
@@ -121,7 +121,7 @@ def predict():
         
         return render_template("index.html", model_name = 'LSTM',sport_prob = sport_percentage,business_prob =business_percentage ,politics_prob = politics_percentage,entertainment_prob = entertainment_percentage, tech_prob=tech_percentage,predicted_category = output)
     
-     elif(model_name == 'GRU'):
+    elif(model_name == 'GRU'):
         load_model_LSTM =tensorflow.keras.models.load_model('models/model_LSTM.h5')
         input_sequences = tokenizer.texts_to_sequences(processed_text)
         input_pad = pad_sequences(input_sequences, maxlen=500)
