@@ -31,26 +31,18 @@
 </div>
 
 <div class="form-group first">
-    <label for="Text">Select ML models</label>
+    <label for="Text">Select model</label>
     <select class="form-control" id="ml-models" name="ml_model" required onchange="return selectedOne()">
-        <option value="">Select ML Models</option>
+        <option value="">Select Model</option>
         <option value="MNB">MNB</option>
         <option value="BNB">BNB</option>
         <option value="CNB">CNB</option>
         <option value="RFC">RFC</option>
+        <option value="LSTM">LSTM</option>
+        <option value="BiLSTM">Bi Directrional LSTM</option>        
+        <option value="GRU">GRU</option>
       </select>
 </div>
-
-<div class="form-group first">
-    <label for="Text">Select DL models</label>
-    <select class="form-control" id="dl-models" name="dl_model" required onchange="return selectedTwo()">
-        <option value="">Select DL Models</option>
-        <option value="LSTM">LSTM</option>
-        <option value="GRU">GRU</option>
-        <option value="RNN">RNN</option>        
-    </select>
-</div>
-
 <input type="submit" value="Detect category" class="btn btn-block btn-primary" id="submitBtn" >
 
 </form>
@@ -157,6 +149,17 @@
       <td>{{RFC_sport_prob}}</td>
       <td>{{RFC_tech_prob}}</td>
       <td>{{RFC_predicted_category}}</td>
+    </tr>      
+  </tbody>
+  <tbody>
+    <tr>
+      <td>{{LSTM_model_name}}</td>
+      <td>{{LSTM_business_prob}}</td>
+      <td>{{LSTM_entertainment_prob}}</td>
+      <td>{{LSTM_politics_prob}}</td>        
+      <td>{{LSTM_sport_prob}}</td>
+      <td>{{LSTM_tech_prob}}</td>
+      <td>{{LSTM_predicted_category}}</td>
     </tr>      
   </tbody>
 </table>
