@@ -10,7 +10,7 @@ app=Flask(__name__)
 
 ## Load the model
 
-tfidf_vector = pk.load(open('\TF-IDF\Tfidf_Vectorizer.pk','rb'))
+tfidf_vector = pk.load(open('TF-IDF\Tfidf_Vectorizer.pk','rb'))
 label_fit = pk.load(open('/Labels/label_fit.pk','rb'))
 tokenizer = pk.load(open("/Tokenizer/tokenizer.pk", "rb"))
 label_encoder_pk = pk.load(open("Labels\label_encoder.pk", "rb"))
