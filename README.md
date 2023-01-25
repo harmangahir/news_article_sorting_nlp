@@ -63,4 +63,4 @@ Despite above, three deep learning models applied:
 
  ### Project Implementation
 
- 1. [Ipython Notebook]: (https://github.com/harmangahir/news_article_sorting_nlp/blob/9464bbb03630f9de773f586c883202e223f885ff/news_article_sorting.ipynb)
+ 1. [Ipython Notebook:](https://github.com/harmangahir/news_article_sorting_nlp/blob/9464bbb03630f9de773f586c883202e223f885ff/news_article_sorting.ipynb)
