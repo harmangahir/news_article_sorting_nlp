@@ -63,4 +63,9 @@ Despite above, three deep learning models applied:
 
  ### Project Implementation
 
- 1. [Ipython Notebook:](https://github.com/harmangahir/news_article_sorting_nlp/blob/9464bbb03630f9de773f586c883202e223f885ff/news_article_sorting.ipynb)
+ 1. [Ipython Notebook](https://github.com/harmangahir/news_article_sorting_nlp/blob/9464bbb03630f9de773f586c883202e223f885ff/news_article_sorting.ipynb)
+
+  ### Project Video
+
+  1. [Project Explanation](https://drive.google.com/file/d/1Iz1H20Vx-r2iHYfzSsgcpwKqlDyDy8IY/view?usp=share_link)
+  2. [AWS EC2 Deployment](https://drive.google.com/file/d/15VOLJJvKbItEVGbD7V_oLzAVezkCtb_d/view?usp=share_link)
