@@ -10,10 +10,10 @@ app=Flask(__name__)
 
 ## Load the model
 
-tfidf_vector = pk.load(open(r'TF-IDF\Tfidf_Vectorizer.pk','rb'))
-label_fit = pk.load(open(r'Labels\label_fit.pk','rb'))
-tokenizer = pk.load(open(r'Tokenizer\tokenizer.pk','rb'))
-label_encoder_pk = pk.load(open(r'Labels\label_encoder.pk','rb'))
+tfidf_vector = pk.load(open('TF-IDF/Tfidf_Vectorizer.pk','rb'))
+label_fit = pk.load(open('Labels/label_fit.pk','rb'))
+tokenizer = pk.load(open('Tokenizer/tokenizer.pk','rb'))
+label_encoder_pk = pk.load(open('Labels/label_encoder.pk','rb'))
 
 
 
@@ -232,6 +232,6 @@ def predict_all():
 
 
 if __name__=="__main__":
+    #app.run(host='0.0.0.0',port=8080)
     app.run(debug=True)
-    #app.run(host = '0.0.0.0', port=8080)
    
