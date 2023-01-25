@@ -44,3 +44,19 @@ API Details or User Interface:
 2. [VS Code IDE](https://code.visualstudio.com)
 3. [Heroku Account](https://heroku.com)
 4. [GitCLI](https://cli.github.com/)
+
+### Purposed Solution
+A BBC labelled public dataset of 1490 stories is utilised for prediction using several algorithms. I applied following ML and DL models for prediction:
+1. [Multinomial Naive Bayes]
+2. [Bernoulli Naive Bayes]
+3. [Complement Naive Bayes]
+4. [K-Nearest Neighbour]
+5. [Stochastic Gradient Descent]
+6. [Logistic Regression]
+
+Despite above, three deep learning models applied:
+1. [LSTM]
+2. [Bi-Directional LSTM]
+3. [Gated Recurrent Unit]
+
+ Almost every algorithm is greater than 90% accurate. We employ the Complement Naive Bayes model in the test because it has strong precision (more than 95%), recall (more than 98%), and f1-score (more than 97%) for each class, giving an accuracy of 98%.
