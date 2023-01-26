@@ -11,9 +11,6 @@ Techniques like clustering and associating rule-based algorithms can be applied 
 For a given news article, the system should be able to classify them according to various categories like Finance, Sports etc.
 You have to build a solution that should recognize and classify the news articles based on their labels.
 
-## Dataset:
-Dataset Link:Link
-
 
 ## Project Evaluation metrics:
 ## Code: 
@@ -61,6 +58,10 @@ Despite above, three deep learning models applied:
 3. Gated Recurrent Unit
 
  Almost every algorithm is greater than 90% accurate.
+
+ 
+ ### Dataset Link
+ 1. [BBC News](https://www.kaggle.com/c/learn-ai-bbc/data)
 
  ### Project Implementation
 
