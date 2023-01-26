@@ -64,7 +64,7 @@ Despite above, three deep learning models applied:
  1. [BBC News](https://www.kaggle.com/c/learn-ai-bbc/data)
 
  ### Project UI
- ![Employee data](static\images\UI-1.jpg?raw=true "Employee Data title")
+(static\images\UI-1.jpg)
  
 
  ### Project Implementation
