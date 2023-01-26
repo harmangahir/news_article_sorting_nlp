@@ -64,7 +64,7 @@ Despite above, three deep learning models applied:
  1. [BBC News](https://www.kaggle.com/c/learn-ai-bbc/data)
 
  ### Project UI
-(static\images\UI-1.jpg)
+![Image](static\images\UI-1.jpg)
  
 
  ### Project Implementation
