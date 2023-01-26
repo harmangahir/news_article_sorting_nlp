@@ -1,6 +1,7 @@
 # News Article Sorting
 ## Problem Statement:
 In today’s world, data is power. With News companies having terabytes of data stored in servers, everyone is in the quest to discover insights that add value to the organization. With various examples to quote in which analytics is being used to drive actions, one that stands out is news article classification.
+
 Nowadays on the Internet there are a lot of sources that generate immense amounts of daily news. In addition, the demand for information by users has been growing continuously, so it is crucial that the news is classified to allow users to access the information of interest quickly and effectively. This way, the machine learning model for automated news classification could be used to identify topics of untracked news and/or make individual suggestions based on the user’s prior interests.
 
 ## Approach: 
@@ -16,15 +17,15 @@ Dataset Link:Link
 
 ## Project Evaluation metrics:
 ## Code: 
-• You are supposed to write a code in a modular fashion 
-• Safe: It can be used without causing harm. 
-• Testable: It can be tested at the code level. 
-• Maintainable: It can be maintained, even as your codebase grows. 
-• Portable: It works the same in every environment (operating system) 
-• You have to maintain your code on GitHub. 
-• You have to keep your GitHub repo public so that anyone can check your code. 
-• Proper readme file you have to maintain for any project development. 
-• You should include basic workflow and execution of the entire project in the readme file on GitHub • Follow the coding standards: https://www.python.org/dev/peps/pep-0008/
+1.  You are supposed to write a code in a modular fashion 
+2.  Safe: It can be used without causing harm. 
+3.  Testable: It can be tested at the code level. 
+4.  Maintainable: It can be maintained, even as your codebase grows. 
+5.  Portable: It works the same in every environment (operating system) 
+6.  You have to maintain your code on GitHub. 
+7.  You have to keep your GitHub repo public so that anyone can check your code. 
+8.  Proper readme file you have to maintain for any project development. 
+9. You should include basic workflow and execution of the entire project in the readme file on GitHub • Follow the coding standards: https://www.python.org/dev/peps/pep-0008/
 
 
 ## Database:
