@@ -63,6 +63,10 @@ Despite above, three deep learning models applied:
  ### Dataset Link
  1. [BBC News](https://www.kaggle.com/c/learn-ai-bbc/data)
 
+ ### Project UI
+ ![Employee data](static\images\UI-1.jpg?raw=true "Employee Data title")
+ 
+
  ### Project Implementation
 
  1. [Ipython Notebook](https://github.com/harmangahir/news_article_sorting_nlp/blob/9464bbb03630f9de773f586c883202e223f885ff/news_article_sorting.ipynb)
