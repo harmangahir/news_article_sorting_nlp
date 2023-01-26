@@ -29,11 +29,11 @@ Dataset Link:Link
 
 
 ## Database:
-• You are supposed to use a given dataset for this project which is a Cassandra database. • https://astra.dev/ineuron
+1.  You are supposed to use a given dataset for this project which is a Cassandra database. • https://astra.dev/ineuron
 Cloud:
-• You can use any cloud platform for this entire solution hosting like AWS, Azure or GCP
+2.  You can use any cloud platform for this entire solution hosting like AWS, Azure or GCP
 API Details or User Interface:
-• You have to expose your complete solution as an API or try to create a user interface for your model testing. Anything will be fine for us.
+3.  You have to expose your complete solution as an API or try to create a user interface for your model testing. Anything will be fine for us.
 
 ## Logging:
 • Logging is a must for every action performed by your code use the python logging library for this.
